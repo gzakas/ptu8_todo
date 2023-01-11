@@ -5,6 +5,7 @@ class Gediminas():
         self.root = root
         self.root.title("PID Generator")
         self.root.geometry("230x150")
+        self.root.iconbitmap('images/binary.ico')
         self.choice = StringVar()
         self.choice.set("Female")
         self.dropdown = OptionMenu(root, self.choice, "Male", "Female")
