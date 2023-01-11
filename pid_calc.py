@@ -18,7 +18,7 @@ class Gediminas():
         self.input_birthdate = Entry(root, textvariable=self.input_birthdate)
         self.u_queue = Label(root, text="Queue number:", border=5)
         self.e_queue = Entry(root, textvariable=self.input_queue)
-        self.m_patvirtinti = Button(root, text="Confirm", command=self.full_check)
+        self.b_confirm = Button(root, text="Confirm", command=self.full_check)
         self.full_info = Label(root, text="Input required data", relief=SUNKEN, border=1)
         self.root.bind('<Return>', self.full_check) # ENTER mygtuko funkcija
 
@@ -28,7 +28,7 @@ class Gediminas():
         self.input_birthdate.grid(row=1, column=1)
         self.u_queue.grid(row=2, column=0, sticky=E)
         self.e_queue.grid(row=2, column=1)
-        self.m_patvirtinti.grid(row=5, column=0, columnspan=2)
+        self.b_confirm.grid(row=5, column=0, columnspan=2)
         self.full_info.grid(row=3, column=0, columnspan=2, sticky=W+E)
 
         self.root.mainloop()
@@ -43,14 +43,14 @@ class Gediminas():
         return self.input_queue.get()
 
     def first_number(self):
-        self.karpymas = str(self.print_selected2())
-        if self.print_selected() == "Male" and self.karpymas[0:2] == "19":
+        self.slicing = str(self.print_selected2())
+        if self.print_selected() == "Male" and self.slicing[0:2] == "19":
             return 3
-        elif self.print_selected() == "Male" and self.karpymas[0:2] == "20":
+        elif self.print_selected() == "Male" and self.slicing[0:2] == "20":
             return 5
-        elif self.print_selected() == "Female" and self.karpymas[0:2] == "19":
+        elif self.print_selected() == "Female" and self.slicing[0:2] == "19":
             return 4
-        elif self.print_selected() == "Female" and self.karpymas[0:2] == "20":
+        elif self.print_selected() == "Female" and self.slicing[0:2] == "20":
             return 6
         else:
             print("Something's wrong")
@@ -74,10 +74,10 @@ class Gediminas():
     def last_number(self):
         list = [self.first_number(), self.year_numbers(), self.month_numbers(), self.day_numbers(), self.queue_numbers()]
         new_list = []
-        stringas = [str(integer) for integer in list]
-        listas = "".join(stringas)
-        rezultatas = int(listas)
-        for x in str(rezultatas):
+        conversion = [str(integer) for integer in list]
+        nosep = "".join(conversion)
+        result = int(nosep)
+        for x in str(result):
             new_list.append(int(x))
 
         sk1 = new_list[0]
