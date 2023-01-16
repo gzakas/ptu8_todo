@@ -4,14 +4,14 @@ class TicTacToe:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Tic-Tac-Toe")
-        self.root.geometry("135x180")
+        self.root.geometry("240x320")
         self.create_widgets()
         self.turn = "X"
 
     def create_widgets(self):
         self.buttons = []
         for i in range(9):
-            button = tk.Button(self.root, width=5, height=2, command=lambda i=i: self.play(i))
+            button = tk.Button(self.root, width=10, height=4, command=lambda i=i: self.play(i))
             button.grid(row=i//3, column=i%3)
             self.buttons.append(button)
 
